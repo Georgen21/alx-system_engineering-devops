@@ -1,2 +1,1 @@
-#!/bin/bash
- prints working directory
+list it
