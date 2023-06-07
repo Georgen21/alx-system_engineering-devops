@@ -1,2 +1,2 @@
 #!bin/bash
-shell basics
+display the contents of your current directory
