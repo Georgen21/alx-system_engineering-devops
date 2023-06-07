@@ -1,2 +1,2 @@
 #!bin/bash
-list your current directory
+changing working directory to home directory
