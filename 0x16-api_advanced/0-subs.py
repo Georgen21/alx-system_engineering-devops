@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-contains queries to https://www.reddit.com/dev/api/
+queries to https://www.reddit.com/dev/api/
 """
 import requests
 
@@ -13,16 +13,17 @@ def number_of_subscribers(subreddit):
     path = '/r/{}/about.json'.format(subreddit)
     url = '{}{}'.format(domain, path)
     header = {
-        'user-agent': '0x16-api_advanced:project/1.0 (by /u/chukwudinwabia42)'
+        'user-agent': '0x16-api_advanced:project/v1.0.0 (by /u/chukwudinwabia42)',
+        'over18': 'yes'
     }
-    response = requests.get(
+    res = requests.get(
         url,
         headers=header,
         allow_redirects=False
     )
-    code = response.status_code
+    code = res.status_code
     if code >= 300:
         return 0
-    data = response.json().get('data')
-    subscribers = data.get('subscribers')
-    return subscribers
+    data = res.json().get('data')
+    subs = data.get('subs')
+    return subs
